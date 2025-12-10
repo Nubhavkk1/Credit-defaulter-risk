@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Default Risk Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+    
+    <h1>💳 Credit Default Risk Dashboard</h1>
+    <p class="subtitle">Analyze individual customers or upload a batch CSV</p>
+
+    <!-- Single Prediction Card -->
+    <div class="card">
+        <h2>Single Customer Calculator</h2>
+
+        <div class="input-group">
+            <label>Utilisation (%)</label>
+            <input id="util" type="number" placeholder="e.g., 45">
+        </div>
+
+        <div class="input-group">
+            <label>Avg Payment Ratio (%)</label>
+            <input id="avg_pay" type="number" placeholder="e.g., 63">
+        </div>
+
+        <div class="input-group">
+            <label>Min Due Paid Frequency (%)</label>
+            <input id="min_due" type="number" placeholder="e.g., 40">
+        </div>
+
+        <div class="input-group">
+            <label>Merchant Mix Index</label>
+            <input id="mix" type="number" step="0.01" placeholder="e.g., 0.72">
+        </div>
+
+        <div class="input-group">
+            <label>Cash Withdrawal (%)</label>
+            <input id="cash" type="number" placeholder="e.g., 13">
+        </div>
+
+        <div class="input-group">
+            <label>Recent Spend Change (%)</label>
+            <input id="spend" type="number" placeholder="e.g., -10">
+        </div>
+
+        <button onclick="predict()">🔍 Predict Risk</button>
+
+        <div id="output" class="result hide"></div>
+    </div>
+
+    <!-- CSV Upload Section -->
+    <div class="card">
+        <h2>📁 Upload CSV for Bulk Prediction</h2>
+
+        <input type="file" id="csvFile" accept=".csv">
+
+        <button onclick="predictCSV()">📊 Predict from CSV</button>
+
+        <table id="csvTable" class="result-table hide">
+            <thead>
+                <tr>
+                    <th>Row</th>
+                    <th>Probability (%)</th>
+                    <th>Risk Level</th>
+                </tr>
+            </thead>
+            <tbody id="csvTableBody"></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

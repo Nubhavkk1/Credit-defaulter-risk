@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+venv/
+env/
+
+# FastAPI artifacts
+*.db
+*.sqlite3
+
+# Frontend builds
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model file
+backend/logistic_regression_model.pkl
